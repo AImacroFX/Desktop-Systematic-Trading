@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from scipy import stats
 
 # SMALL LOOP
@@ -27,7 +26,7 @@ max_distrib=np.ndarray(shape=(mc_sim,1))
 std_distrib=np.ndarray(shape=(mc_sim,1))
 
 for i in range(0,mc_sim):
-    glob_cap_path = single_run(capital, token) #Assigning a 3-tuple output from the `single_run` function 
+    glob_cap_path = single_run(capital, token) #Assigning output from the `single_run` function 
     size_distrib[i]=np.size(glob_cap_path)
     #max_distrib[i]=np.max(glob_cap_path)
     std_distrib[i]=np.std(glob_cap_path)
