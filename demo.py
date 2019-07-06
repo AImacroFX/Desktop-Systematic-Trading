@@ -51,7 +51,7 @@ def annualize(r, s):
     as a tuple (return, std)
     """
     rolls_per_annum = 6 * 8 * 250
-    r = (1 + r) ** rolls_per_annum
+    r = (1 + r) ** rolls_per_annum -1 
     s = s * np.sqrt(rolls_per_annum)
     return (r, s)
 
@@ -83,14 +83,14 @@ if __name__ == '__main__':
     std = returns.std().median()
     print('--------------')
     print('median return per roll:')
-    print(returns_median)
+    print('{:.2%}'.format(returns_median))
     print('median roll return std:')
     print(std)
     print('--------------')
     print('Annualized (6 bets per hour x 8 hours daily x 250 days per year)')
     a = annualize(returns_median, std)
     print('return:')
-    print(a[0])
+    print('{:.2%}'.format(a[0]))
     print('std:')
     print(a[1])
     
